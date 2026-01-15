@@ -192,10 +192,16 @@ export const createDonation = async (
     redirect(`/checkout/${donationId}`);
 }
 
-//Update Product
+type ActionState = {
+  success?: boolean;
+  error?: string;
+  message?: string;
+};
+
+//Update Traktir
 export const updateDonation = async (
   traktirId: string,
-  prevState: any,
+  prevState: unknown,
   formData: FormData
 ) => {
   const rawData = {

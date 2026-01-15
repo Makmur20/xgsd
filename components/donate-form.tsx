@@ -3,6 +3,7 @@ import { useActionState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { createDonation } from "@/lib/actions";
 import { ProductDetailProps } from "@/types/product";
+import Image from "next/image";
 import clsx from "clsx";
 
 const products = [
@@ -54,10 +55,12 @@ const DonateForm = ({
                   className="hidden peer"
                   required
                 />
-                <img
+                <Image
                   src={p.image}
                   alt={p.name}
-                  className="w-20 h-20 object-cover rounded-full mb-2"
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover"
                 />
                 <span className="text-sm font-semibold text-gray-700">
                   {p.name}
