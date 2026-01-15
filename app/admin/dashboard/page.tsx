@@ -15,9 +15,6 @@ const DashboardPage = () => {
         <DashboardCards />
       </Suspense>
       
-      <Suspense fallback={<p>Loading Reservations...</p>}>
-        <ReservationList />
-      </Suspense>
     </div>
   )
 }
