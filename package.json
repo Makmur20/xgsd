@@ -1,0 +1,52 @@
+{
+  "name": "booking-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@auth/prisma-adapter": "^2.7.2",
+    "@prisma/client": "^6.5.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tiptap/extension-image": "^3.6.5",
+    "@tiptap/extension-link": "^3.6.5",
+    "@tiptap/extension-underline": "^3.6.5",
+    "@tiptap/extension-youtube": "^3.6.5",
+    "@tiptap/react": "^3.6.5",
+    "@tiptap/starter-kit": "^3.6.5",
+    "@vercel/blob": "^1.1.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "dompurify": "^3.2.7",
+    "isomorphic-dompurify": "^2.28.0",
+    "lucide-react": "^0.544.0",
+    "midtrans-client": "^1.4.3",
+    "next": "15.4.1",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "19.1.0",
+    "react-datepicker": "^8.4.0",
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0",
+    "react-spinners": "^0.17.0",
+    "sweetalert2": "^11.26.17",
+    "swiper": "^12.0.2",
+    "zod": "^4.0.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.1",
+    "prisma": "^6.5.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
