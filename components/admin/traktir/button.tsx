@@ -1,4 +1,4 @@
-import { IoTrashOutline, IoPencil } from "react-icons/io5";
+import { IoPencil } from "react-icons/io5";
 import Link from "next/link";
 
 export const EditButton = ({id}: {id: string}) => {

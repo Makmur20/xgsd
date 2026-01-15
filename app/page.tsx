@@ -1,4 +1,3 @@
-import Hero from "@/components/hero";
 import Slider from "@/components/Slider";
 import Main from "@/components/main";
 

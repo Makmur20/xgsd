@@ -1,4 +1,4 @@
-import { z, object, string, coerce, array } from "zod";
+import { object, string, coerce, array } from "zod";
 
 export const ProductSchema = object({
     name: string().min(1, "String must contain at least 1 character(s)"),

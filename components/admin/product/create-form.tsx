@@ -90,13 +90,14 @@ useEffect(() => {
   if (state?.error) {
     Swal.fire({
       icon: "error",
-      title: "Update Gagal",
+      title: "Input Gagal",
       text: "Periksa kembali inputan kamu",
     }).then(() => {
       router.push("/admin/product");
     });
   }
-}, [state]);
+}, [state, router]); // ✅ BENAR
+
 
 
   return (

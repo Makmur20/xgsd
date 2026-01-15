@@ -1,5 +1,4 @@
 import DashboardCards from "../dashboard-cards";
-import ReservationList from "../reservation-list";
 import { Metadata } from "next";
 import { Suspense } from "react";
 

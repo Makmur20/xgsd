@@ -1,4 +1,3 @@
-import Link from "next/link";
 import TraktirTable from "./traktir-table";
 import { Suspense } from "react";
 

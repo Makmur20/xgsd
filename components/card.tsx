@@ -1,8 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import {IoPeopleOutline} from "react-icons/io5"
 import { Product } from "@prisma/client"
-import { formatCurrency } from "@/lib/utils"
 
 const Card = ({ product }: { product: Product }) => {
   return (

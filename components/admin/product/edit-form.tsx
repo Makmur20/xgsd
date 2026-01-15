@@ -81,7 +81,7 @@ useEffect(() => {
     Swal.fire({
       icon: "success",
       title: "Update Berhasil",
-      text: "Data berhasil diupdate",
+      text: "Data berhasil di Input",
       timer: 2000,
       showConfirmButton: false,
     }).then(() => {
@@ -98,7 +98,8 @@ useEffect(() => {
       router.push("/admin/product");
     });
   }
-}, [state]);
+}, [state, router]); // ✅ BENAR
+
 
   return (
     <form action={formAction}>
