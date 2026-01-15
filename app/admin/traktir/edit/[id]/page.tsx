@@ -2,12 +2,14 @@ import { notFound } from "next/navigation";
 import EditTraktir from "@/components/admin/traktir/edit-traktir";
 import { Suspense } from "react";
 
-const UpdateTraktirPage = async ({
-  params,
-}: {
-  params: { id: string };
-}) => {
-  const { id: traktirId } = await params; // ⬅️ WAJIB await
+type PageProps = {
+  params: Promise<{
+    id: string;
+  }>;
+};
+
+const UpdateTraktirPage = async ({ params }: PageProps) => {
+  const { id: traktirId } = await params; // ✅ sekarang cocok
 
   if (!traktirId) return notFound();
 
