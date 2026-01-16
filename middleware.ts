@@ -1,29 +1,27 @@
-import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/auth";
 
-const ProtectedRoutes = ["/myreservation", "/checkout", "/admin"];
+export default auth((req) => {
+  const { pathname } = req.nextUrl;
+  const isLoggedIn = !!req.auth?.user;
+  const role = req.auth?.user?.role;
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  // Cookie Auth.js (nama default)
-  const hasSession =
-    request.cookies.get("authjs.session-token") ||
-    request.cookies.get("__Secure-authjs.session-token");
-
-  if (!hasSession && ProtectedRoutes.some(route => pathname.startsWith(route))) {
-    return NextResponse.redirect(new URL("/signin", request.url));
+  if (!isLoggedIn && pathname.startsWith("/checkout")) {
+    return Response.redirect(new URL("/signin", req.url));
   }
 
-  // Role check TIDAK BOLEH di Edge
-  if (pathname.startsWith("/signin") && hasSession) {
-    return NextResponse.redirect(new URL("/", request.url));
+  if (isLoggedIn && role !== "admin" && pathname.startsWith("/admin")) {
+    return Response.redirect(new URL("/", req.url));
   }
 
-  return NextResponse.next();
-}
+  if (isLoggedIn && pathname.startsWith("/signin")) {
+    return Response.redirect(new URL("/", req.url));
+  }
+});
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+    "/checkout/:path*",
+    "/admin/:path*",
+    "/signin",
   ],
 };
