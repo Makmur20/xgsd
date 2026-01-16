@@ -1,36 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "./auth";
 
 const ProtectedRoutes = ["/myreservation", "/checkout", "/admin"];
 
-export async function middleware(request: NextRequest){
-    const session = await auth();
-    const isLoggedIn = !!session?.user;
-    const role = session?.user.role;
-    const {pathname} = request.nextUrl;
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
 
-    if(!isLoggedIn && ProtectedRoutes.some((route) => pathname.startsWith(route))){
-        return NextResponse.redirect(new URL("/signin", request.url))
-    }
+  // Cookie Auth.js (nama default)
+  const hasSession =
+    request.cookies.get("authjs.session-token") ||
+    request.cookies.get("__Secure-authjs.session-token");
 
-    if(isLoggedIn && role !== "admin" && pathname.startsWith("/admin")){
-        return NextResponse.redirect(new URL("/", request.url))
-    }
+  if (!hasSession && ProtectedRoutes.some(route => pathname.startsWith(route))) {
+    return NextResponse.redirect(new URL("/signin", request.url));
+  }
 
-    if(isLoggedIn && pathname.startsWith("/signin")){
-        return NextResponse.redirect(new URL("/", request.url))
-    }
+  // Role check TIDAK BOLEH di Edge
+  if (pathname.startsWith("/signin") && hasSession) {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico, sitemap.xml, robots.txt (metadata files)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
   ],
-}
+};
