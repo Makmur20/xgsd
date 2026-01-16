@@ -8,9 +8,8 @@ import { notFound } from "next/navigation";
 const ProductDetail = async ({ productId }: { productId: string }) => {
   const product = await getProductDetailById(productId);
 
-  // ✅ GUARD WAJIB
   if (!product) {
-    notFound();
+    notFound(); // ⬅️ WAJIB
   }
 
   return (
@@ -19,8 +18,8 @@ const ProductDetail = async ({ productId }: { productId: string }) => {
         <Image
           src={product.image}
           alt={product.name}
-          width={800}
-          height={400}
+          width={770}
+          height={430}
           priority
           className="w-full rounded-sm mb-8"
         />
@@ -30,40 +29,26 @@ const ProductDetail = async ({ productId }: { productId: string }) => {
         </h1>
 
         <div className="prose max-w-none">
-          <div className="aspect-w-16 aspect-h-9">
-            <div
-              className="[&>iframe]:w-full [&>iframe]:h-full"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(product.description, {
-                  ADD_TAGS: ["iframe"],
-                  ADD_ATTR: [
-                    "allow",
-                    "allowfullscreen",
-                    "frameborder",
-                    "scrolling",
-                    "src",
-                  ],
-                  ALLOWED_URI_REGEXP:
-                    /^https:\/\/(www\.)?youtube\.com\/embed\//,
-                }),
-              }}
-            />
-          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(product.description),
+            }}
+          />
         </div>
 
-        <h5 className="text-lg font-bold py-1 mt-1">Kategori:</h5>
-        <div className="grid md:grid-cols-3">
+        <h5 className="text-lg font-bold py-4">Kategori:</h5>
+        <div className="grid md:grid-cols-3 gap-2">
           {product.ProductCategories.map((item) => (
-            <div className="flex gap-1 py-1" key={item.id}>
-              <IoCheckmark className="size-5" />
+            <div className="flex gap-1 items-center" key={item.id}>
+              <IoCheckmark className="size-5 text-green-600" />
               <span>{item.Categories.name}</span>
             </div>
-          ))} 
+          ))}
         </div>
       </div>
 
       <div className="md:col-span-4">
-        <div className="border-2 border-gray-300 border-dashed px-3 py-5 bg-slate-50 rounded-md">
+        <div className="border-2 border-dashed border-gray-300 p-4 bg-slate-50 rounded-md">
           <DonateForm product={product} />
         </div>
       </div>
