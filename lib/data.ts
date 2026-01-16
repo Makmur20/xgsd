@@ -41,26 +41,29 @@ export const getProductById = async (productId: string) => {
 
 
 export const getProductDetailById = async (productId: string) => {
-    try {
-        const result = await prisma.product.findUnique({
-            where: {id: productId},
-            include: {
-                ProductCategories: {
-                    include: {
-                        Categories: {
-                            select: {
-                                name: true,
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        return result;
-    } catch (error) {
-        console.log(error);
-    }
-}
+  try {
+    const result = await prisma.product.findUnique({
+      where: { id: productId },
+      include: {
+        ProductCategories: {
+          include: {
+            Categories: {
+              select: {
+                name: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    return result;
+  } catch (error) {
+    console.error("getProductDetailById error:", error);
+    return null; // ⬅️ INI PENTING
+  }
+};
+
 export const getProductDonationById = async (id: string) => {
     try {
         const result = await prisma.donation.findUnique({

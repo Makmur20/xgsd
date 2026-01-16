@@ -1,6 +1,6 @@
 "use client";
+
 import { useActionState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
 import { createDonation } from "@/lib/actions";
 import { ProductDetailProps } from "@/types/product";
 import Image from "next/image";

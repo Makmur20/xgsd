@@ -5,7 +5,7 @@ import DOMPurify from "isomorphic-dompurify";
 import DonateForm from "./donate-form";
 import { notFound } from "next/navigation";
 
-const ProductDetail = async ({ productId }: { productId: string }) => {
+const  ProductDetail = async ({ productId }: { productId: string }) => {
   const product = await getProductDetailById(productId);
   if(!product) return notFound();    
 
@@ -13,7 +13,7 @@ const ProductDetail = async ({ productId }: { productId: string }) => {
     <div className="max-w-screen-xl py-16 px-4 grid lg:grid-cols-12 gap-8 mx-auto">
       <div className="md:col-span-8">
         <Image
-          src={product.image}
+          src={product.image || "/coffe.jpg"}
           alt={product.name}
           width={770}
           height={430}
@@ -26,11 +26,7 @@ const ProductDetail = async ({ productId }: { productId: string }) => {
         </h1>
 
         <div className="prose max-w-none">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(product.description),
-            }}
-          />
+        <div dangerouslySetInnerHTML={{ __html: product.description }} />
         </div>
 
         <h5 className="text-lg font-bold py-4">Kategori:</h5>
