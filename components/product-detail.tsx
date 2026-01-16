@@ -49,7 +49,7 @@ const ProductDetail = async ({ productId }: { productId: string }) => {
 
       <div className="md:col-span-4">
         <div className="border-2 border-dashed border-gray-300 p-4 bg-slate-50 rounded-md">
-          <DonateForm product={product} />
+          {/* <DonateForm product={product} /> */}
         </div>
       </div>
     </div>
