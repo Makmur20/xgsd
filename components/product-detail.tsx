@@ -7,10 +7,7 @@ import { notFound } from "next/navigation";
 
 const ProductDetail = async ({ productId }: { productId: string }) => {
   const product = await getProductDetailById(productId);
-
-  if (!product) {
-    notFound(); // ⬅️ WAJIB
-  }
+  if(!product) return notFound();    
 
   return (
     <div className="max-w-screen-xl py-16 px-4 grid lg:grid-cols-12 gap-8 mx-auto">
