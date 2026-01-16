@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { getProductDetailById } from "@/lib/data";
 import { IoCheckmark } from "react-icons/io5";
-import DOMPurify from "isomorphic-dompurify";
 import DonateForm from "./donate-form";
 import { notFound } from "next/navigation";
 
