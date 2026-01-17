@@ -8,9 +8,9 @@ const Footer = () => {
             <div className="grid md:grid-cols-3 gap-7">
                 <div>
                     <Link href="/" className="mb-10 block">
-                        <Image src="/logo.png" width={128} height={49} alt="logo" />
+                        <Image src="/solusicoding_logo.png" width={128} height={49} alt="logo" />
                     </Link>
-                    <p className="text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam cum illum alias vitae voluptatem quo esse quia dolores corporis eaque beatae ducimus, a at sapiente? Nobis sint eaque dicta accusantium.</p>
+                    <p className="text-gray-400">Menjadikan dukungan kecil sebagai semangat besar untuk terus belajar, berkarya, dan berkembang secara konsisten.</p>
                 </div>
                 <div>
                     <div className="flex gap-20">
@@ -22,9 +22,6 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <Link href="/about">About Us</Link>
-                                </li>
-                                <li>
-                                    <Link href="/room">Rooms</Link>
                                 </li>
                                 <li>
                                     <Link href="/contact">Contact Us</Link>
@@ -52,9 +49,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <h4 className="mb-8 text-xl font-semibold text-white">Newslater</h4>
+                    <h4 className="mb-8 text-xl font-semibold text-white">Subscibe</h4>
                     <p className="text-gray-400">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dukung Kami Disini
                     </p>
                     <form action="" className="mt-5">
                         <div className="mb-5">
@@ -68,8 +65,9 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-        <div className="max-w-screen-xl mx-auto px-4 border-t border-gray-500 
-        py-8 text-center text-base text-gray-500">&copy; Copyright 2025 | Solusi Coding | All Right Reserved</div>
+        <div className="max-w-screen-xl mx-auto px-4 border-t border-gray-500 py-8 text-center text-base text-gray-500">
+  &copy; {new Date().getFullYear()} | Solusi Coding | All Right Reserved
+</div>
     </footer>
 
   )

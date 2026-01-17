@@ -10,19 +10,19 @@ const products = [
   {
     id: "kopi1",
     name: "1 Cup Kopi",
-    price: 10000,
+    price: 35000,
     image: "/coffe.jpg",
   },
   {
     id: "kopi2",
     name: "2 Cup Kopi",
-    price: 20000,
+    price: 70000,
     image: "/coffe.jpg",
   },
   {
     id: "kopi3",
     name: "3 Cup Kopi",
-    price: 50000,
+    price: 100000,
     image: "/coffe.jpg",
   },
 ];
@@ -42,7 +42,7 @@ const DonateForm = ({
         <div className="mb-6">
           <p className="mb-2 font-medium text-gray-800">☕ Pilih Kopi</p>
 
-          <div className="grid gap-3 md:grid-cols-3">
+          <div className="grid gap-2 md:grid-cols-3">
             {products.map((p) => (
               <label
                 key={p.id}
@@ -60,7 +60,7 @@ const DonateForm = ({
                   alt={p.name}
                   width={400}
                   height={300}
-                  className="w-full h-48 object-cover"
+                  className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105 rounded-xl"
                 />
                 <span className="text-sm font-semibold text-gray-700">
                   {p.name}

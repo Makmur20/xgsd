@@ -35,14 +35,14 @@ const Card = ({ product }: { product: Product }) => {
 
         {/* Harga */}
         <p className="text-orange-500 font-bold text-lg">
-          Rp {product.price?.toLocaleString("id-ID")}
+          Rp {product.price?.toLocaleString("id-ID")} /cup
         </p>
 
-        {/* Info tambahan */}
+        {/* Info tambahan
         <div className="flex items-center justify-between text-xs text-gray-500">
           <span></span>
           <span>10 Traktiran</span>
-        </div>
+        </div> */}
 
         {/* Button */}
         <Link

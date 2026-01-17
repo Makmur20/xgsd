@@ -27,7 +27,7 @@ const DashboardCards = async () => {
                 <LuShoppingCart className="size-12 text-white"/>
             </div>
             <div className="px-4 text-gray-700">
-                <h3 className="text-sm tracking-wider">Total Resertvation</h3>
+                <h3 className="text-sm tracking-wider">Total Traktir</h3>
                 <p className="text-3xl">{data.reserve}</p>
             </div>
         </div>

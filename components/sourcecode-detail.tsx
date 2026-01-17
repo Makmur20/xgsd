@@ -14,7 +14,7 @@ const SourceCodeDetail = async ({donationId}: {donationId: string}) => {
                 <li className='py-2'>
                     <div className="flex items-center">
                         <div className="flex-1 min-w-0 ms-4">
-                            <p className='text-sm font-medium text-gray-900 truncate'>Trakter ID</p>
+                            <p className='text-sm font-medium text-gray-900 truncate'>Traktir ID</p>
                         </div>
                         <div className="inline-flex items-center text-base font-semibold text-gray-900">#{donation.id}</div>
                     </div>
@@ -23,7 +23,7 @@ const SourceCodeDetail = async ({donationId}: {donationId: string}) => {
                 <li className='py-2'>
                     <div className="flex items-center">
                         <div className="flex-1 min-w-0 ms-4">
-                            <p className='text-sm font-medium text-gray-900 truncate'>Trakter Date</p>
+                            <p className='text-sm font-medium text-gray-900 truncate'>Tanggal Traktir</p>
                         </div>
                         <div className="inline-flex items-center text-base font-semibold text-gray-900">{formatDate(donation.createdAt.toISOString())}</div>
                     </div>
@@ -32,7 +32,7 @@ const SourceCodeDetail = async ({donationId}: {donationId: string}) => {
                 <li className='py-2'>
                     <div className="flex items-center">
                         <div className="flex-1 min-w-0 ms-4">
-                            <p className='text-sm font-medium text-gray-900 truncate'>Name</p>
+                            <p className='text-sm font-medium text-gray-900 truncate'>Nama</p>
                         </div>
                         <div className="inline-flex items-center text-base font-semibold text-gray-900">{donation.User.name}</div>
                     </div>
@@ -52,7 +52,7 @@ const SourceCodeDetail = async ({donationId}: {donationId: string}) => {
                 <li className='py-2'>
                     <div className="flex items-center">
                         <div className="flex-1 min-w-0 ms-4">
-                            <p className='text-sm font-medium text-gray-900 truncate'>Phone</p>
+                            <p className='text-sm font-medium text-gray-900 truncate'>Nomor Hp</p>
                         </div>
                         <div className="inline-flex items-center text-base font-semibold text-gray-900">{donation.User.phone}</div>
                     </div>
@@ -61,7 +61,7 @@ const SourceCodeDetail = async ({donationId}: {donationId: string}) => {
                 <li className='py-2'>
                     <div className="flex items-center">
                         <div className="flex-1 min-w-0 ms-4">
-                            <p className='text-sm font-medium text-gray-900 truncate'>Payment Methode</p>
+                            <p className='text-sm font-medium text-gray-900 truncate'>Metode Pembayaran</p>
                         </div>
                         <div className="inline-flex items-center text-base font-semibold text-gray-900 capitalize">{donation.Payment?.methode? donation.Payment.methode.replace("_"," "): null}</div>
                     </div>
@@ -70,7 +70,7 @@ const SourceCodeDetail = async ({donationId}: {donationId: string}) => {
                 <li className='py-2'>
                     <div className="flex items-center">
                         <div className="flex-1 min-w-0 ms-4">
-                            <p className='text-sm font-medium text-gray-900 truncate'>Payment Status</p>
+                            <p className='text-sm font-medium text-gray-900 truncate'>Status Pembayaran</p>
                         </div>
                         <div className="inline-flex items-center text-base font-semibold text-gray-900">{donation.Payment?.status}</div>
                     </div>
@@ -83,7 +83,7 @@ const SourceCodeDetail = async ({donationId}: {donationId: string}) => {
                 <thead className='text-xs text-gray-700 uppercase bg-gray-50'>
                     <tr>
                         <th className='px-6 py-3'>Source Code</th>
-                        <th className='px-6 py-3 min-w-60 md:min-w-0'>Trakter Date</th>
+                        <th className='px-6 py-3 min-w-60 md:min-w-0'>Tanggal Traktir</th>
                         <th className='px-6 py-3'>Link Source Code</th>
                         <th className='px-6 py-3'>Sub Total</th>
                     </tr>
